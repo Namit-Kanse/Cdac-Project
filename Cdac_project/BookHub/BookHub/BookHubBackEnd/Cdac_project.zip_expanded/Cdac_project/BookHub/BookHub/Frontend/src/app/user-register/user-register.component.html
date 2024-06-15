@@ -1,0 +1,268 @@
+<div class="container-fluid">
+    <form [formGroup]="userRegisterForm" (ngSubmit)="checkUserRegister(userRegisterForm)">
+        <div class="row align-items-center text-darkflex-direction-start"
+            style="height:10vh;background:#0e76a8;border:1px solid black">
+            <div class="col-8 text-light" style="font-size: 38px;font-weight: bold;"><strong><i>Book_Hub</i></strong></div>
+            <div class="col-1" style="font-size: 18px;">
+                <a class="btn btn-outline-light  p-2" routerLink="/PageNotFound">
+                    About Us
+                </a>
+            </div>
+            <div class="col-1" style="font-size: 18px;">
+                <a class="btn btn-outline-light p-2" routerLink="/home">
+                    Home
+                </a>
+            </div>
+            <div class="col-1 p-4" style="font-size: 18px;">
+                <a class="btn btn-outline-light p-2" routerLink="/userRegister">
+                    Register
+                </a>
+            </div>
+            <div class="col-1 p-4" style="font-size: 18px;">
+                <a class="btn btn-outline-light  p-2" routerLink="/userLogin">
+                    Login
+                </a>
+            </div>
+        </div>
+        <div class="row mt-3" style="height:90vh;background:#f5f5f5">
+            <div class="col-3 "></div>
+            <div class="col-6">
+                <div class="row bg-secondary " style="height:76vh">
+                    <div class="col-12 col-md-6 bg-danger d-flex justify-content-center align-items-center"
+                        style="background:url(./assets/images/pexels-dominika-roseclay-1036808.jpg)center no-repeat;background-size:cover;">
+
+                    </div>
+                    <div class="col-12 col-md-6 bg-info">
+                        <div class="row flex-column justify-content-center align-items-center ">
+
+                            <div class="col  mt-5 d-flex justify-content-center align-items-center text-light"
+                                style="font-size: 32px;font-weight: bold;">
+                                User Register</div>
+                            <!-- symbol -->
+                            <div class="col  mt-4 d-flex justify-content-center align-items-center">
+
+                                <fa-icon [icon]="faGoogle" class="mr-3 h4 text-light"></fa-icon>
+                                <fa-icon [icon]="faTwitter" class="mr-3 h4 text-light"></fa-icon>
+                                <fa-icon [icon]="faFacebook" class="mr-3 h4 text-light"></fa-icon>
+
+                            </div>
+                            <div class="col mt-3 text-light" style="font-size:18px;">
+                                UserFirstName :
+                            </div>
+                            <div class="col  mt-1 d-flex justify-content-center align-items-center">
+                                <div class="input-group ">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default"><svg width="1em"
+                                                height="1em" viewBox="0 0 16 16" class="bi bi-person-lines-fill"
+                                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                                            </svg></span>
+                                    </div>
+                                    <input type="text" placeholder="Enter First Name here" class="form-control mr-5"
+                                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+                                        formControlName="userFirstName">
+
+                                </div>
+                            </div>
+
+                            <div class="validations text-danger"
+                                *ngIf="userRegisterForm.controls['userFirstName'].hasError('required') && userRegisterForm.controls['userFirstName'].touched">
+                                Firstname is required*
+                            </div>
+                            <div class="validations text-danger"
+                                *ngIf="userRegisterForm.controls['userFirstName'].hasError('pattern')">
+                                Invalid Firstname.
+                            </div>
+
+                            <div class="col mt-3 text-light" style="font-size:18px;">
+                                UserLastName :
+                            </div>
+                            <div class="col  mt-1 d-flex justify-content-center align-items-center">
+                                <div class="input-group ">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default"><svg width="1em"
+                                                height="1em" viewBox="0 0 16 16" class="bi bi-person-lines-fill"
+                                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                                            </svg></span>
+                                    </div>
+                                    <input type="text" id="username" placeholder="UserLastName"
+                                        class="form-control mr-5" aria-label="Sizing example input"
+                                        aria-describedby="inputGroup-sizing-default" formControlName="userLastName">
+
+                                </div>
+                            </div>
+                            <div class="validations text-danger"
+                                *ngIf="userRegisterForm.controls['userLastName'].hasError('required') && userRegisterForm.controls['userLastName'].touched">
+                                Lastname is required*
+                            </div>
+                            <div class="validations text-danger"
+                                *ngIf="userRegisterForm.controls['userLastName'].hasError('pattern')">
+                                Invalid Lastname.
+                            </div>
+
+
+                            <div class="col mt-3 text-light" style="font-size:18px;">
+                                Email:
+                            </div>
+
+                            <div class=" col mt-1 text-light">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default"><svg width="1em"
+                                                height="1em" viewBox="0 0 16 16" class="bi bi-envelope-open"
+                                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M8.47 1.318a1 1 0 0 0-.94 0l-6 3.2A1 1 0 0 0 1 5.4v.818l5.724 3.465L8 8.917l1.276.766L15 6.218V5.4a1 1 0 0 0-.53-.882l-6-3.2zM15 7.388l-4.754 2.877L15 13.117v-5.73zm-.035 6.874L8 10.083l-6.965 4.18A1 1 0 0 0 2 15h12a1 1 0 0 0 .965-.738zM1 13.117l4.754-2.852L1 7.387v5.73zM7.059.435a2 2 0 0 1 1.882 0l6 3.2A2 2 0 0 1 16 5.4V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5.4a2 2 0 0 1 1.059-1.765l6-3.2z" />
+                                            </svg></span>
+                                    </div>
+                                    <input type="text" id="email" placeholder="Email" class="form-control mr-5"
+                                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+                                        formControlName="userEmail">
+
+                                </div>
+                            </div>
+
+                            <div class="validations text-danger"
+                                *ngIf="userRegisterForm.controls['userEmail'].hasError('required') && userRegisterForm.controls['userEmail'].touched">
+                                Email Id is required*
+                            </div>
+                            <div class="validations text-danger"
+                                *ngIf="userRegisterForm.controls['userEmail'].hasError('pattern')">
+                                Invalid email.
+                            </div>
+
+
+                            <div class="col mt-1 text-light" style="font-size:18px;">
+                                Contact:
+                            </div>
+
+                            <div class=" col mt-1 text-light">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default"><svg width="1em"
+                                                height="1em" viewBox="0 0 16 16" class="bi bi-envelope-open"
+                                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                                            </svg></span>
+                                    </div>
+                                    <input type="text" id="email" placeholder="Contact" class="form-control mr-5"
+                                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+                                        formControlName="userContact">
+
+                                </div>
+
+                            </div>
+
+                            <div class="validations text-danger"
+                                *ngIf="userRegisterForm.controls['userContact'].hasError('required') && userRegisterForm.controls['userContact'].touched">
+                                ContactNo is required*
+                            </div>
+                            <div class="validations text-danger"
+                                *ngIf="userRegisterForm.controls['userContact'].hasError('pattern')">
+                                Invalid ContactNo.
+                            </div>
+
+
+
+                            <div class="col mt-1 text-light" style="font-size:18px;">
+                                Address:
+                            </div>
+
+                            <div class=" col mt-1 text-light">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default"><svg width="1em"
+                                                height="1em" viewBox="0 0 16 16" class="bi bi-envelope-open"
+                                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                                            </svg></span>
+                                    </div>
+                                    <input type="text" id="email" placeholder="Address" class="form-control mr-5"
+                                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+                                        formControlName="userAddress">
+
+                                </div>
+
+                            </div>
+
+                            <div class="validations text-danger"
+                                *ngIf="userRegisterForm.controls['userAddress'].hasError('required') && userRegisterForm.controls['userAddress'].touched">
+                                userAddress is required*
+                            </div>
+                            <div class="validations text-danger"
+                                *ngIf="userRegisterForm.controls['userAddress'].hasError('pattern')">
+                                Invalid ContactNo.
+                            </div>
+
+
+
+                            <div class="col mt-1 text-light" style="font-size:18px;">
+                                Password:
+                            </div>
+                            <div class=" col mt-1 text-light">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-default"><svg width="1em"
+                                                height="1em" viewBox="0 0 16 16" class="bi bi-key" fill="currentColor"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
+                                                <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                            </svg></span>
+                                    </div>
+                                    <input type="password" id="password" placeholder="Password"
+                                        class="form-control mr-5" aria-label="Sizing example input"
+                                        aria-describedby="inputGroup-sizing-default" formControlName="userPassword">
+
+                                </div>
+                            </div>
+
+                            <div class="validations text-danger"
+                                *ngIf="userRegisterForm.controls['userPassword'].hasError('required') && userRegisterForm.controls['userPassword'].touched">
+                                userPassword is required*
+                            </div>
+                            <div class="validations text-danger"
+                                *ngIf="userRegisterForm.controls['userPassword'].hasError('pattern')">
+                                Minimum eight characters, at least one uppercase letter, one number and one special
+                                character:
+                            </div>
+
+
+
+                            <!-- button -->
+                            <div class=" col  mt-3 d-flex justify-content-center align-items-center">
+
+                                <button type="submit" class="btn btn-outline-dark btn-light"
+                                    style="width:250px;font-size: 20px;" [disabled]="userRegisterForm.invalid">Sign
+                                    up</button>
+
+
+                            </div>
+                            <div class="col mt-3 mb-2 text-light d-flex justify-content-center align-items-center"
+                                style="font-size: 16px;text-decoration: none;">
+                                Already have an account?&nbsp;<a routerLink="/userLogin"
+                                    style="color:rgb(25, 24, 24);text-decoration: none;">Login
+                                    here</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     <div class="row bg-dark" style=" height: 14vh;">
+<div class=" alert alert-info" role="alert" *ngIf="uiInvalidCredential" style="width:25%">
+            Registered SuccessFully!!!
+        </div>  
+            
+        </div> 
+        
+
+    </form>
+
+</div>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>All Books</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class=" d-flex  align-items-center bg-info" style="height:12vh">
+            <h1 style="color: white;margin-left: 20px;font-size: 32px;">ALL BOOKS</h1>
+            <div class=" " style="margin-left: 900px;">
+                <a (click)="navigateMyShelf()" style="color: white;cursor:pointer"> My Shelf &nbsp; | &nbsp; </a>
+                <a (click)="navigateMyOrders()" style="color: white;cursor:pointer"> My Orders &nbsp;| &nbsp;</a>
+                <a (click)="navigateCart()" style="color: white;cursor:pointer"> My Cart &nbsp; | &nbsp; </a>
+                <a (click)="processLogout()" style="color: white;cursor:pointer"> Logout <i class="fa fa-power-off"></i>
+                </a>
+
+            </div>
+
+        </div>
+        <br>
+        <div>
+            <a class=" btn btn-dark btn-md ml-4 " (click)=" navigateHome()">Home</a>
+
+        </div>
+        <!-- 
+            <button class="btn btn-danger btn-md float-right ml-2" (click)=processLogout() type="submit">Logout</button>
+            <button class="btn btn-dark btn-md float-right ml-2" (click)=navigateCart() type="submit">Show Cart</button>
+            <button class="btn btn-dark btn-md float-right ml-2" (click)=navigateMyShelf() type="submit">My
+                Shelf</button>
+            <button class="btn btn-dark btn-md float-right" (click)=navigateMyOrders() type="submit">My Orders</button>
+        -->
+
+        <br>
+        <div style="margin-left: 30%;">
+            <input class="form-control " style="width: 50%; height: 40px;border-color:black ;" type="text"
+                [(ngModel)]="search" autocomplete="off" placeholder="Search Book" />
+
+        </div>
+
+        <div class="row justify-content-center align-items-center mt-3">
+            <div class="col-10 mt-4">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th width="10%" style="padding-left: 40px;">Book</th>
+                            <!-- <th width="8%">E-Book</th> -->
+                            <th width="5%">Book Name</th>
+                            <th width="10%">Author Name</th>
+                            <th width="8%">Book Price</th>
+                            <th width="8%">Rent Price</th>
+                            <th width="22%">Book Description</th>
+                            <th width="10%">Add To Cart</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let book of BookList | filter:search">
+
+                            <td width="12%"><img src="{{book.book_image}}" width="115" height="135"></td>
+
+                            <!-- <td><object data="{{book.book_pdf}}" type="application/x-pdf" title="ViewPdf" width="500"
+                                    height="720">
+                                    <a href="{{book.book_pdf}}">
+                                        <mat-icon>save_alt</mat-icon>
+                                    </a>
+                                </object></td> -->
+                            <!-- <td width="8%"><a href="{{book.book_pdf}}" download><i class="fa fa-file-pdf-o"
+                                        style="font-size:24px;color:red;text-align: center;padding-top: 50px;"></i></a>
+                            </td> -->
+                            <td width="10%">{{book.book_name}}</td>
+                            <td width="5%">{{book.author_name}}</td>
+                            <td width="5%">{{book.book_price |
+                                currency:
+                                'INR'}}</td>
+                            <td width="5%">{{book.rent_price |
+                                currency:
+                                'INR'}}</td>
+                            <td>{{book.book_description}}</td>
+                            <td>
+                                <a class="btn btn-info btn-sm mr-2"
+                                    (click)="eBook(book.book_id,book.book_price)">E-book</a>
+                                <a class="btn btn-danger btn-sm" (click)="rentBook(book.book_id)">Rent</a>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

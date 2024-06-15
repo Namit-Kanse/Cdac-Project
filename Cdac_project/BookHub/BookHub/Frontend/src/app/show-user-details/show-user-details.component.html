@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>All Users</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="d-flex justify-content-center align-items-center bg-info" style="height:12vh">
+            <h1 style="color: white">ALL USERS DETAILS</h1>
+        </div>
+        <br>
+        <div>
+            <a class="btn btn-dark btn-md ml-4 " (click)="navigateHome()">Home</a>
+            <!-- <a class="btn btn-dark btn-md ml-4 " (click)="addBook()"> Add Book</a> -->
+            <button class="btn btn-danger btn-lg float-right" (click)=processLogout() type="submit">Logout</button>
+        </div>
+        <br>
+        <div style="margin-left: 30%;">
+            <input class="form-control" style="width: 50%; height: 40px" type="text" [(ngModel)]="search"
+                autocomplete="off" placeholder="Search User" />
+        </div>
+
+        <div class="row justify-content-center align-items-center mt-3">
+            <div class="col-10 mt-4">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>User First Name</th>
+                            <th>User Last Name</th>
+                            <th>User Email</th>
+                            <th>User Contact</th>
+                            <th>User Address</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let user of UserList | filter:search">
+
+
+                            <td>{{user.userFirstName}}</td>
+                            <td>{{user.userLastName}}</td>
+                            <td>{{user.userEmail}}</td>
+                            <td>{{user.userContact}}</td>
+                            <td>{{user.userAddress}}</td>
+                            <td>
+
+                                <button class="design" (click)="deleteUsers(user.userId)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </td>
+
+
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

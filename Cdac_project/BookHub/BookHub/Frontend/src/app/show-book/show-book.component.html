@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>All Books</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="d-flex justify-content-center align-items-center bg-info" style="height:12vh">
+            <h1 style="color: white">ALL BOOKS</h1>
+        </div>
+        <br>
+        <div>
+            <a class="btn btn-dark btn-md ml-4 " (click)="navigateHome()">Home</a>
+            <a class="btn btn-dark btn-md ml-4 " (click)="addBook()"> Add Book</a>
+            <button class="btn btn-danger btn-lg float-right" (click)=processLogout() type="submit">Logout</button>
+        </div>
+        <br>
+        <div style="margin-left: 30%;">
+            <input class="form-control" style="width: 50%; height: 40px;border-color:black " type="text"
+                [(ngModel)]="search" autocomplete="off" placeholder="Search Book" />
+        </div>
+
+        <div class="row justify-content-center align-items-center mt-3">
+            <div class="col-10 mt-4">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th width="10%" style="padding-left: 40px;">Book</th>
+                            <th width="8%">E-Book</th>
+                            <th width="5%">Book Name</th>
+                            <th width="10%">Author Name</th>
+                            <th width="8%">Book Price</th>
+                            <th width="8%">Rent Price</th>
+                            <th width="22%">Book Description</th>
+                            <th width="10%">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let book of BookList | filter:search">
+
+                            <td width="12%"><img src="{{book.book_image}}" width="110" height="130"></td>
+
+                            <!-- <td><object data="{{book.book_pdf}}" type="application/x-pdf" title="ViewPdf" width="500"
+                                    height="720">
+                                    <a href="{{book.book_pdf}}">
+                                        <mat-icon>save_alt</mat-icon>
+                                    </a>
+                                </object></td> -->
+
+                            <td width="8%"><a href="{{book.book_pdf}}" download><i class="fa fa-file-pdf-o"
+                                        style="font-size:24px;color:red;text-align: center;padding-top: 50px;"></i></a>
+                            </td>
+
+                            <td width="10%">{{book.book_name}}</td>
+                            <td width="5%">{{book.author_name}}</td>
+                            <td width="5%">{{book.book_price |
+                                currency:
+                                'INR'}}</td>
+                            <td width="5%">{{book.rent_price |
+                                currency:
+                                'INR'}}</td>
+                            <td>{{book.book_description}}</td>
+                            <td>
+                                <button class="design" (click)="editBook(book.book_id)">
+                                    <mat-icon>create</mat-icon>
+                                </button>&nbsp;&nbsp;&nbsp;<button class="design" (click)="deleteBook(book.book_id)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </td>
+
+
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
